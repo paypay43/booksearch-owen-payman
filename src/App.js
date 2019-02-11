@@ -57,8 +57,6 @@ class App extends Component {
       delete params['filter'];
     }
 
-    debugger;
-
     fetch(BASE_URL + formatQueryParams(params))
       .then(response => {
         return response.json();
