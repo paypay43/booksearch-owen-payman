@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Search from './Search';
 import Filter from './Filter';
+import './Filter.css';
 
 export default class FilterOptions extends Component {
   render() {

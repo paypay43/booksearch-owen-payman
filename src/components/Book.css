@@ -2,4 +2,30 @@ li {
   list-style: none;
   border: 1px solid black;
   padding: 20px;
+  height: 250px;
+}
+
+li.expanded {
+  height: 100%;
+  min-height: 250px;
+}
+
+li img {
+  float: left;
+  max-height: 150px;
+  margin-right: 50px;
+}
+
+li h3 {
+  text-align: center;
+}
+
+li span {
+  margin-top: 10px;
+}
+
+.book-desc {
+  display: block;
+  overflow: scroll;
+  max-height: 200px;
 }

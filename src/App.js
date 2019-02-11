@@ -30,11 +30,10 @@ class App extends Component {
         : book.saleInfo.saleability === 'FOR_SALE'
         ? book.saleInfo.listPrice.amount
         : 'N/A';
-    console.log(book)
 
-    const img = book.volumeInfo.hasOwnProperty('imageLinks') 
-    ? book.volumeInfo.imageLinks
-    : 'N/A'
+    const img = book.volumeInfo.hasOwnProperty('imageLinks')
+      ? book.volumeInfo.imageLinks
+      : 'N/A';
 
     return {
       id: book.etag,
@@ -52,7 +51,13 @@ class App extends Component {
     const q = this.state.searchTerm;
     const printType = this.state.printType;
     const filter = this.state.bookType;
-    const params = { q, printType, key };
+    const params = { q, printType, filter, key };
+
+    if (printType === 'magazines') {
+      delete params['filter'];
+    }
+
+    debugger;
 
     fetch(BASE_URL + formatQueryParams(params))
       .then(response => {
