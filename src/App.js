@@ -23,6 +23,7 @@ class App extends Component {
  
   getBookResults() {
     const BASE_URL = `https://www.googleapis.com/books/v1/volumes?q=`
+    const API_KEY = `AIzaSyCvJfsnuGBUP8-8YVuwIPmJHUOEVYXlb-g`
     const searchQuery = `${this.state.searchTerm}`
     const printType = `${this.state.printType}`
     const bookType = `${this.state.bookType}`
