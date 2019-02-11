@@ -20,7 +20,6 @@ class App extends Component {
   };
 
   pickBookInformation(book) {
-    console.log(book);
     const author = !book.volumeInfo.hasOwnProperty('authors')
       ? 'N/A'
       : book.volumeInfo.authors.join(', ');
@@ -29,15 +28,20 @@ class App extends Component {
       book.saleInfo.saleability === 'FREE'
         ? 'Free'
         : book.saleInfo.saleability === 'FOR_SALE'
-        ? book.saleInfo.listPrice.price
+        ? book.saleInfo.listPrice.amount
         : 'N/A';
+    console.log(book)
+
+    const img = book.volumeInfo.hasOwnProperty('imageLinks') 
+    ? book.volumeInfo.imageLinks
+    : 'N/A'
 
     return {
-      id: book.id,
+      id: book.etag,
       title: book.volumeInfo.title,
       author,
       description: book.volumeInfo.description,
-      img: book.volumeInfo.imageLinks,
+      img,
       price
     };
   }
